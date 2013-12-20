@@ -13,6 +13,6 @@ Chat.App.config(['$routeProvider', function($routeProvider) {
 	}
 ]);
 
-Chat.App.run([function () {
+Chat.App.run(['Chat', function (Chat) {
 	// initialise the app
 }]);

@@ -5,10 +5,10 @@ var Chat = new (function () {
     "use strict";
 
     this.Config = {
-        templateUrl: 'app/views/'
+        templateUrl: 'app/views/',
+        badwords: [
+            'coffeescript',
+            'tomato'
+        ]
     };
-
-    this.App = angular.module('Chat', [], function() {
-
-    });
 })();

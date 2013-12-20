@@ -8,12 +8,19 @@
     <script src="lib/angular-route.min.js"></script>
     <script src="http://127.0.0.1:1337/socket.io/socket.io.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="app/layout/main.css">
+
     <!-- App -->
     <script src="app/init.js"></script>
     <script src="app/app.js"></script>
 
     <script src="app/controller/ChatController.js"></script>
     <script src="app/services/ChatService.js"></script>
+
+    <script src="app/directives/chatInput.js"></script>
+    <script src="app/directives/scrollDown.js"></script>
+
+    <script src="app/filters/badword.js"></script>
 </head>
 <body ng-app="Chat">
     <ng-view></ng-view>

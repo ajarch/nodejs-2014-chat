@@ -1,0 +1,60 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+}
+
+.header, .footer {
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    background: #eeeeee;
+}
+
+.header {
+    top: 0;
+}
+
+.header h2 {
+    margin: 5px;
+}
+
+.footer {
+    bottom: 0;
+}
+
+.footer input {
+    font-size: 16px;
+    padding: 6px;
+    width: 500px;
+}
+
+.messages {
+    position: absolute;
+    top: 40px;
+    bottom: 40px;
+    right: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.messages ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.messages ul > li {
+    border-bottom: 1px solid #eeeeee;
+    padding: 4px;
+}
+
+.messages ul > li .username {
+    font-weight: bold;
+}
+
+.messages ul > li .time {
+    color: #999999;
+}
