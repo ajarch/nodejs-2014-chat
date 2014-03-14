@@ -5,7 +5,7 @@ Chat.App.factory('Chat', function($rootScope) {
         username = '';
 
     // connect to socket.io
-    var socket = io.connect('http://127.0.0.1:1337');
+    var socket = io.connect('http://127.0.0.1');
 
     socket.on('backlog', function(lines) {
         console.log(lines);
