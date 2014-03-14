@@ -14,7 +14,6 @@ var User = function User(name, socket) {
 
     if(name === "") {
         name = this.getRandomName();
-        console.log(name);
     }
     
     this.setName(name);
@@ -50,7 +49,6 @@ User.prototype.getRandomName = function() {
 User.prototype.setSocket = function(socket) {
     this._socket = socket;
     this._socket.on("message", function(message) {
-        console.log(message[0]);
         if(message[0] == "/") {
             this.handleCommandMessage(message);
         } else {

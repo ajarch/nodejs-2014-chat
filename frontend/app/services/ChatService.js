@@ -5,10 +5,9 @@ Chat.App.factory('Chat', function($rootScope) {
         username = '';
 
     // connect to socket.io
-    var socket = io.connect('http://127.0.0.1');
+    var socket = io.connect('http://10.0.0.7:1337');
 
     socket.on('backlog', function(lines) {
-        console.log(lines);
         // clear array without losing the reference
         lineCollection.splice(0, lines.length - 1);
         // add new lines to our lines array
@@ -20,7 +19,6 @@ Chat.App.factory('Chat', function($rootScope) {
     });
 
     socket.on('message', function(line) {
-        console.log(line);
         // add line to lines
         lineCollection.push(line);
         // call apply to tell angular to check for changed data
