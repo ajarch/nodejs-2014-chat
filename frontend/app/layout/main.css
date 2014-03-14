@@ -25,6 +25,11 @@ html, body {
     bottom: 0;
 }
 
+.footer .name {
+    float: left;
+    padding: 10px;
+}
+
 .footer input {
     font-size: 16px;
     padding: 6px;
@@ -35,7 +40,7 @@ html, body {
     position: absolute;
     top: 40px;
     bottom: 40px;
-    right: 0;
+    right: 20%;
     left: 0;
     overflow: auto;
 }
@@ -57,4 +62,20 @@ html, body {
 
 .messages ul > li .time {
     color: #999999;
+}
+
+aside {
+    background-color: #f0f0f0;
+    box-shadow: inset 10px 0px 10px -10px #ccc;
+    padding: 10px;
+    position: absolute;
+    top: 40px;
+    left: 80%;
+    right: 0;
+    bottom: 40px;
+}
+
+aside h3 {
+    color: black;
+    border-bottom: 1px solid #ccc;
 }
