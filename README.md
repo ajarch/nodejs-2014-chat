@@ -1,7 +1,8 @@
 # A small node.js chat application
 
-##Demo
-I will soon host a little demo on Heroku...
+##Useage
+Clone and run `npm install` in the repo directory.
+Start the server with `node backend/app.js` and the chat will be available at `localhost:3000`.
 
 ##Basic useful feature list:
 The Chat uses a IRC-like syntax and is purely command based:
