@@ -1,5 +1,11 @@
 var Room = require('./room');
 
+/**
+ * When called, creates a closure that returns a factory method
+ * The return function expects an argument which is the key of the room
+ *
+ * @returns {Function} factory method
+ */
 function roomFactory() {
     var rooms = {};
 
