@@ -53,9 +53,6 @@ Room.prototype.addLine = function(line) {
     this.newMessage(line);
 };
 
-Room.prototype.getLineAtIndex = function(idx) {
-};
-
 Room.prototype.sendSystemMessage = function(message) {
     if(typeof message === "string") {
         var theLine = {
