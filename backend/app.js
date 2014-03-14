@@ -4,12 +4,8 @@ var express = require('express'),
     User = require('./models/user'),
 	io = require('socket.io').listen(1337);
 
-function getRandomName() {
-    return "User-" + Math.floor(Math.random() * 1000);
-}
-
 io.sockets.on('connection', function(socket) {
-    var user = new User(getRandomName(), socket);
+    var user = new User('', socket);
 });
 
 var app = express();

@@ -11,7 +11,14 @@ var User = function User(name, socket) {
     if( typeof name === "undefined" || typeof socket === "undefined") {
         throw new Error({ msg: "Illegal constructor."});
     }
+
+    if(name === "") {
+        name = this.getRandomName();
+        console.log(name);
+    }
+    
     this.setName(name);
+
     this.setSocket(socket);
 
     this.setCurrentRoom(roomFactory("lobby"));
@@ -34,7 +41,11 @@ User.prototype.setName = function(name) {
 
 User.prototype.getName = function() {
     return this._name;
-}
+};
+
+User.prototype.getRandomName = function() {
+    return "User-" + Math.floor(Math.random() * 1000);
+};
 
 User.prototype.setSocket = function(socket) {
     this._socket = socket;
@@ -70,7 +81,7 @@ User.prototype.getCurrentRoom = function() {
         return false;
     }
     return this._currentRoom;
-}
+};
 
 User.prototype.setCurrentRoom = function(room) {
 
@@ -90,14 +101,14 @@ User.prototype.changeRoom = function(roomname) {
     } catch(e) {
         console.log(e.msg);
     }
-}
+};
 
 User.prototype.message = function(line) {
     this._socket.emit("message", line);
-}
+};
 
 User.prototype.backlog = function(backlog) {
     this._socket.emit("backlog", backlog);
-}
+};
 
 module.exports = User;
