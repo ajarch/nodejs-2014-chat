@@ -7,8 +7,8 @@ Start the server with `node backend/app.js` and the chat will be available at `l
 ##Basic useful feature list:
 The Chat uses a IRC-like syntax and is purely command based:
 
- * Change your name for future messages `/name newname`.
- * Messages are currently stored untill the server restarts.
+ * Change your name for future messages with `/name newname`.
+ * Messages are currently stored until the server restarts.
  * Join the room called "theroom" with `/join theroom`.
  * The first room you find yourself in is called `lobby`.
  * When you join a room, you will receive the backlog of this room.
