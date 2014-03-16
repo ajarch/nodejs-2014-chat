@@ -33,9 +33,7 @@ Line.prototype.setText = function(text) {
 Line.prototype.getFormattedLine = function() {
     return {
         timestamp   : this._timestamp,
-        user        : {
-            name: this._user.getName()
-        },
+        user        : { name: this._user.getName() },
         text        : this._text
     }
 };
