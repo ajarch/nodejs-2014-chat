@@ -14,8 +14,6 @@ function roomFactory() {
             rooms[roomname] = new Room(roomname, []);
         }
 
-        console.log(rooms);
-
         return rooms[roomname];
     }
 };
