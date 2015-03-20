@@ -23,18 +23,23 @@ var User = function User(name, socket) {
     this.setCurrentRoom(roomFactory("lobby"));
 };
 
-User.prototype.setName = function(name) {
-    if(typeof name === "string") {
-        var oldName = this._name;
-        this._name = name;
-        if(this.getCurrentRoom()) {
-            this.getCurrentRoom().sendSystemMessage(oldName + " is now known as " +  this.getName());
-        }
-        if(this._socket) {
-            this._socket.emit('username', this.getName());
-        }
-    } else {
+User.prototype._validateName = function(name) {
+    function fail_name() {
         throw new Error( { msg: "Argument name is not a string." });
+    }
+
+    return (typeof name === "string") || fail_name();
+};
+
+User.prototype.setName = function(name) {
+    this._validateName(name);
+    var oldName = this._name;
+    this._name = name;
+    if(this.getCurrentRoom()) {
+        this.getCurrentRoom().sendSystemMessage(oldName + " is now known as " +  this.getName());
+    }
+    if(this._socket) {
+        this._socket.emit('username', this.getName());
     }
 };
 
@@ -48,30 +53,51 @@ User.prototype.getRandomName = function() {
 
 User.prototype.setSocket = function(socket) {
     this._socket = socket;
-    this._socket.on("message", function(message) {
-        if(message[0] == "/") {
-            this.handleCommandMessage(message);
-        } else {
-            this._currentRoom.messageReceived.call(this._currentRoom, message, this );
-        }
-    }.bind(this));
+    this._socket.on("message", this.onSocketMessage.bind(this));
 };
 
-User.prototype.handleCommandMessage = function(message) {
-    if(message.substr(1, 4) === "join") {
-        var roomname = message.split(" ")[1];
+User.prototype.onSocketMessage = function(message) {
+    if(message[0] == "/") {
+        this.handleCommandMessage(message);
+    } else {
+        this._currentRoom.messageReceived.call(this._currentRoom, message, this );
+    }
+};
+
+User.prototype.commands = {
+    '/join': function() {
+        var roomname = arguments[1];
         this.changeRoom(roomname);
-    } else if(message.substr(1,5) === "leave") {
-        var roomname = message.split(" ")[1];
+    },
+
+    '/leave': function() {
+        var roomname = arguments[1];
+        this.changeRoom("lobby");
         roomFactory(roomname).leftBy(this);
-        
-    } else if(message.substr(1,4) === "name") {
-        var newName = message.split(" ")[1];
-        
-        if(typeof newName === "string" && newName !== "") {
-            this.setName(newName);   
+    },
+
+    '/name': function() {
+        var newName = arguments[1];
+        if (typeof newName === "string" && newName !== "") {
+            this.setName(newName);
         }
     }
+};
+
+User.prototype.parseCommand = function(message) {
+    var rawCommand = message.match(/\/\S*/);
+    return this.commands.hasOwnProperty(rawCommand) && rawCommand;
+};
+
+User.prototype.applyCommand = function(command, args) {
+    return command && this.commands[command].apply(this, args);
+}
+
+User.prototype.handleCommandMessage = function(message) {
+    var command = this.parseCommand(message),
+        args = message.split(' ');
+
+    return this.applyCommand(command, args);
 };
 
 User.prototype.getCurrentRoom = function() {

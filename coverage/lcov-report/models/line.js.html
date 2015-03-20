@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for models/line.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../prettify.css">
+
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">models/line.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">33.33% <small>(7 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">33.33% <small>(7 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">models/</a> &#187; line.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var User = require('./user');
+&nbsp;
+var Line = <span class="fstat-no" title="function not covered" >function Line(message, user) {</span>
+<span class="cstat-no" title="statement not covered" >    this._timestamp = null;</span>
+<span class="cstat-no" title="statement not covered" >    this._user = null;</span>
+<span class="cstat-no" title="statement not covered" >    this._text = null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.setTimestamp();</span>
+<span class="cstat-no" title="statement not covered" >    this.setUser(user);</span>
+<span class="cstat-no" title="statement not covered" >    this.setText(message);</span>
+};
+&nbsp;
+Line.prototype.setTimestamp = <span class="fstat-no" title="function not covered" >function(timestamp) {</span>
+<span class="cstat-no" title="statement not covered" >    if(timestamp instanceof Date) {</span>
+<span class="cstat-no" title="statement not covered" >        this._timestamp = timestamp;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >        this._timestamp = new Date();</span>
+    }
+};
+&nbsp;
+Line.prototype.setUser = <span class="fstat-no" title="function not covered" >function(user) {</span>
+<span class="cstat-no" title="statement not covered" >    if(user.constructor instanceof User.constructor) {</span>
+<span class="cstat-no" title="statement not covered" >        this._user = user;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >        throw new Error( { msg: "Argument user is not an instance of User." } );</span>
+    }
+};
+&nbsp;
+Line.prototype.setText = <span class="fstat-no" title="function not covered" >function(text) {</span>
+<span class="cstat-no" title="statement not covered" >    this._text = text;</span>
+};
+&nbsp;
+Line.prototype.getFormattedLine = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+        timestamp   : this._timestamp,
+        user        : { name: this._user.getName() },
+        text        : this._text
+    }
+};
+&nbsp;
+module.exports = Line;
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Mar 20 2015 15:33:09 GMT+0100 (CET)</div>
+</div>
+
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../sorter.js"></script>
+</body>
+</html>
